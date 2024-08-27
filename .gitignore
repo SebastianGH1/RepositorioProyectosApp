@@ -1,5 +1,8 @@
-*.iml
-.gradle
+# Build
+/build/
+/app/build/
+/*.iml
+.gradle/
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -7,9 +10,67 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
+# Gradle
+.gradle/
+/build/
+/gradle/
+/gradle-wrapper.jar
+/gradle-wrapper.properties
+
+# IntelliJ
+/.idea
 .DS_Store
-/build
-/captures
+*.iml
+*.hprof
+
+# JetBrains
+/.idea/modules.xml
+/.idea/*.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/libraries
+/.idea/assetWizardSettings.xml
+
+# APK/Signing
+*.apk
+*.ap_
+*.keystore
+
+# Android Studio
+/captures/
+.externalNativeBuild/
+
+# Proguard
+proguard/
+proguard-*.txt
+*.mapping
+
+# Lint
+/lint/intermediates/
+/lint/generated/
+
+# External native build folder generated in Android Studio 2.2+
 .externalNativeBuild
-.cxx
-local.properties
+
+# App-specific files:
+**/debug.keystore
+**/release.keystore
+
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+
+# Ignore jetpack compose build cache
+/.gradle/caches/
+
+# Lottie animations (cached)
+lottie_cache/
+
+# Firebase/Crashlytics
+fabric.properties
+crashlytics.properties
+
+# Android NDK
+.cxx/
