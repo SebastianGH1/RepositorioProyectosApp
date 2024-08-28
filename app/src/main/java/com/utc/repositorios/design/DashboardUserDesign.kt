@@ -36,6 +36,8 @@ fun DashboardUserDesign() {
         Spacer(modifier = Modifier.size(16.dp))
         val listaMaterias = listOf("Ing. Sistemas", "Arquitectura", "Administracion", "Pedagogia ")
         SelectorMaterias(listaMaterias)
+        Spacer(modifier = Modifier.size(16.dp))
+        ContenedorPublicaciones()
     }
 }
 
