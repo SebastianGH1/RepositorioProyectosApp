@@ -63,8 +63,7 @@ fun CarruselBanners(listaImagenes: List<Int>) {
 fun DashboardBanner(recursoImagenId: Int) {
     Box {
         Image(
-            painter = painterResource(id = recursoImagenId),
-            contentDescription = "bannerUtc"
+            painter = painterResource(id = recursoImagenId), contentDescription = "bannerUtc"
         )
     }
 }
@@ -85,17 +84,14 @@ fun SelectorMaterias(listaMaterias: List<String>) {
         pageSpacing = 8.dp,
         pageSize = PageSize.Fixed(140.dp)
     ) { index ->
-        Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Red,
-                contentColor = Color.White
-            ),
+        Button(colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Red, contentColor = Color.White
+        ),
             contentPadding = PaddingValues(0.dp),
             modifier = Modifier.fillMaxWidth(),
             onClick = {}) {
             Text(
-                text = listaMaterias[index],
-                fontSize = 11.sp
+                text = listaMaterias[index], fontSize = 11.sp
             )
         }
     }
