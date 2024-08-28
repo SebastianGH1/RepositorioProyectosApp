@@ -1,11 +1,10 @@
-
 package com.utc.repositorios.activitys
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.utc.repositorios.design.LoginDesign
+import com.utc.repositorios.design.DashboardUserDesign
 import com.utc.repositorios.ui.theme.RepositorioProyectosAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RepositorioProyectosAppTheme {
-                LoginDesign()
+                DashboardUserDesign()
             }
         }
     }

@@ -40,7 +40,6 @@ fun LoginDesign() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
         Text(
             text = "UTC\nRepositorios",
             modifier = Modifier
