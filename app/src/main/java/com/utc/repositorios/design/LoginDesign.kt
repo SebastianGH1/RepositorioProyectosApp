@@ -1,6 +1,5 @@
 package com.utc.repositorios.design
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +13,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,16 +26,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.utc.repositorios.R
+import com.utc.repositorios.navigation.AppScreens
 
 @Preview
 @Composable
 private fun LoginDesignPreview() {
-    LoginDesign()
+    LoginDesign(navController = rememberNavController())
 }
 
 @Composable
-fun LoginDesign() {
+fun LoginDesign(navController: NavController) {
+    var txtNombre by remember {
+        mutableStateOf("")
+    }
+    var txtMatricula by remember {
+        mutableStateOf("")
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -51,8 +63,11 @@ fun LoginDesign() {
         OutlinedTextField(
             modifier = Modifier
                 .padding(horizontal = 16.dp),
-            value = "",
-            onValueChange = {},
+            value = txtNombre,
+            onValueChange = { text ->
+                txtNombre = text
+
+            },
             placeholder = {
                 Text(text = "Matricula")
             },
@@ -64,8 +79,10 @@ fun LoginDesign() {
         OutlinedTextField(
             modifier = Modifier
                 .padding(horizontal = 16.dp),
-            value = "miPassword123#",
-            onValueChange = {},
+            value = txtMatricula,
+            onValueChange = { text ->
+                txtMatricula = text
+            },
             placeholder = {
                 Text(text = "Contraseña")
             },
@@ -77,7 +94,7 @@ fun LoginDesign() {
 
         Button(
             onClick = {
-                Log.i("AppUtc", "Click Login")
+                navController.navigate(route = AppScreens.Dashboard.ruta)
             },
             content = {
                 Icon(

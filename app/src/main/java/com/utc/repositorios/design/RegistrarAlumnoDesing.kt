@@ -22,15 +22,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Preview
 @Composable
 private fun RegistarAlumnoPreview() {
-    RegistrarAumno()
+    RegistrarAumno(navController = rememberNavController())
 }
 
 @Composable
-fun RegistrarAumno() {
+fun RegistrarAumno(navController: NavController) {
 
     var txtNombre by remember {
         mutableStateOf("")
@@ -115,14 +117,14 @@ fun RegistrarAumno() {
         Spacer(modifier = Modifier.padding(top = 10.dp))
 
         Button(
-            onClick = {  },
+            onClick = { },
             colors = ButtonDefaults.buttonColors(Color.Blue)
         ) {
             Text(text = "Registrar Alumno")
         }
 
         if (isShowMenuPublicaciones) {
-            MenuPublicaciones()
+            MenuPublicaciones(navController)
         }
     }
 }

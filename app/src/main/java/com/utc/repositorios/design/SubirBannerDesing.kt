@@ -23,16 +23,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.utc.repositorios.R
 
 @Preview
 @Composable
 private fun BannerAdmPreview() {
-    BannerAdm()
+    BannerAdm(navController = rememberNavController())
 }
 
 @Composable
-fun BannerAdm() {
+fun BannerAdm(navController: NavController) {
     var isShowMenuPublicaciones by remember {
         mutableStateOf(false)
     }
@@ -79,6 +81,6 @@ fun BannerAdm() {
         }
     }
     if (isShowMenuPublicaciones) {
-        MenuPublicaciones()
+        MenuPublicaciones(navController)
     }
 }

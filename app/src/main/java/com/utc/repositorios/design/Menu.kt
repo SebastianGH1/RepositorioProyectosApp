@@ -12,15 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.utc.repositorios.navigation.AppScreens
 
 @Preview
 @Composable
 private fun MenuPreview() {
-Menu()
+    Menu(navController = rememberNavController())
 }
 
 @Composable
-fun Menu() {
+fun Menu(navController: NavController) {
     Box(
         modifier = Modifier
             .wrapContentSize()
@@ -33,10 +36,14 @@ fun Menu() {
                 .padding(8.dp)
                 .background(Color(0xFFFF9900))
         ) {
-            Button(onClick = { /*TODO*/ }, modifier = Modifier) {
+            Button(onClick = {
+                navController.navigate(route = AppScreens.PublicacionesUser.ruta)
+            }, modifier = Modifier) {
                 Text(text = "Cargar Publicacion ")
             }
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                navController.navigate(route = AppScreens.Login.ruta)
+            }) {
                 Text(text = "Salir")
             }
 
@@ -45,7 +52,7 @@ fun Menu() {
 }
 
 @Composable
-fun MenuPublicaciones() {
+fun MenuPublicaciones(navController: NavController) {
     Box(
         modifier = Modifier
             .wrapContentSize()
@@ -58,10 +65,14 @@ fun MenuPublicaciones() {
                 .padding(8.dp)
                 .background(Color(0xFFFF9900))
         ) {
-            Button(onClick = { /*TODO*/ }, modifier = Modifier) {
+            Button(onClick = {
+                navController.navigate(route = AppScreens.Dashboard.ruta)
+            }, modifier = Modifier) {
                 Text(text = "Inicio  ")
             }
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                navController.navigate(route = AppScreens.Login.ruta)
+            }) {
                 Text(text = "Salir")
             }
 

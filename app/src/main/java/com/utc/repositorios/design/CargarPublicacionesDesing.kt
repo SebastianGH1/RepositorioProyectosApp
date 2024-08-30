@@ -22,17 +22,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Preview
 @Composable
 private fun CargarPublicacionesPreview() {
-    CargarPublicaciones()
+    CargarPublicaciones(navController= rememberNavController())
 
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CargarPublicaciones() {
+fun CargarPublicaciones(navController: NavHostController) {
 
     var isShowMenuPublicaciones by remember {
         mutableStateOf(false)
@@ -124,7 +126,7 @@ fun CargarPublicaciones() {
             }
         }
         if (isShowMenuPublicaciones) {
-            MenuPublicaciones()
+            MenuPublicaciones(navController)
         }
 
 
