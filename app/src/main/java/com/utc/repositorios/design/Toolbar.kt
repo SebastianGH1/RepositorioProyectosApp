@@ -4,10 +4,16 @@ import android.widget.Toolbar
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.statusBarsIgnoringVisibility
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Icon
@@ -25,18 +31,23 @@ import com.utc.repositorios.R
 @Preview
 @Composable
 fun ToolbarPreview(){
-    Toolbar()
+    Toolbar(){
+
+    }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun Toolbar(){
+fun Toolbar(onClick:()->Unit){
     Row(modifier = Modifier
         .fillMaxWidth()
         .background(Color(0xFFFF9900))
         .height(64.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween) {
-        IconButton(onClick = {}) {
+        IconButton(onClick = {
+            onClick.invoke()
+        }) {
             Icon(imageVector = Icons.Filled.Menu, contentDescription =null )
         }
         Text(text = "Sebastian")
